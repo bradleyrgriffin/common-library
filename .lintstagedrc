@@ -2,7 +2,7 @@
 
 {
   "*.ts": [
-    "eslint --max-warnings=0",
+    "eslint --fix",
     "prettier --write"
   ]
 }
