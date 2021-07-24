@@ -1,6 +1,6 @@
 {
     "name": "@bradleyrgriffin/common-library",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "description": "this library houses common npm and react utilities for consumption across applications",
     "main": "dist/index.js",
     "types": "dist/hello.d.ts",
@@ -12,7 +12,8 @@
         "storybook": "start-storybook -p 6006",
         "build-storybook": "build-storybook",
         "start": "start-storybook -p 8080",
-        "prepare": "husky install"
+        "prepare": "husky install || echo \"not running husky\"",
+        "build:rollup": "rollup -c"
     },
     "repository": {
         "type": "git",
@@ -31,9 +32,18 @@
     },
     "homepage": "https://github.com/bradleyrgriffin/common-library#readme",
     "dependencies": {
-        "lint-staged": "^11.1.1"
+        "react": "^16.8.0",
+        "react-dom": "^16.8.0"
     },
     "devDependencies": {
+        "@babel/core": "^7.14.8",
+        "@babel/preset-env": "^7.14.8",
+        "@babel/preset-react": "^7.14.5",
+        "@open-wc/building-rollup": "^1.10.0",
+        "@rollup/plugin-babel": "^5.3.0",
+        "@rollup/plugin-commonjs": "^19.0.1",
+        "@rollup/plugin-node-resolve": "^13.0.3",
+        "@rollup/plugin-typescript": "^8.2.3",
         "@storybook/addon-actions": "^6.3.4",
         "@storybook/addon-essentials": "^6.3.4",
         "@storybook/addon-links": "^6.3.4",
@@ -45,11 +55,16 @@
         "eslint": "^7.31.0",
         "eslint-config-google": "^0.14.0",
         "eslint-plugin-react": "^7.24.0",
+        "husky": "^7.0.0",
+        "jest": "^27.0.6",
+        "lint-staged": "^11.1.1",
+        "postcss": "^8.3.6",
         "prettier": "2.3.2",
-        "react": "^17.0.2",
-        "react-dom": "^17.0.2",
+        "rollup": "^2.53.3",
+        "rollup-plugin-postcss": "^4.0.0",
+        "rollup-plugin-terser": "^7.0.2",
         "typescript": "^4.3.5",
-        "husky": "^7.0.0"
+        "typescript-plugin-css-modules": "^3.4.0"
     },
     "peerDependencies": {
         "react": "^16.8.0",
