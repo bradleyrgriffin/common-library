@@ -44,6 +44,7 @@ jobs:
                   cp dist/ /app/
                   cp package.json /app/
                   cd /app/
+                  npm install --only=production
             - name: Yarn Package Publish
               env:
                   GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN_GITHUB_PACKAGE_REGISTRY }}
