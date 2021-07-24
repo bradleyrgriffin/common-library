@@ -1,6 +1,6 @@
 {
     "name": "@bradleyrgriffin/common-library",
-    "version": "1.0.4",
+    "version": "1.1.0",
     "description": "this library houses common npm and react utilities for consumption across applications",
     "main": "build/index.js",
     "module": "build/index.es.js",
