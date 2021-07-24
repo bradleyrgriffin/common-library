@@ -39,6 +39,11 @@ jobs:
             - id: build
               run: |
                   yarn build
+            - id: switch to production build
+              run: |
+                  cp dist/ /app/
+                  cp package.json /app/
+                  cd /app/
             - name: Yarn Package Publish
               env:
                   GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN_GITHUB_PACKAGE_REGISTRY }}
