@@ -51,8 +51,11 @@ jobs:
               sudo apt-get install \
                 nodejs \
                 zip \
-                sed
+                sed \
+                git
               npm install -g yarn
+              git config --global user.email "brad@bradleyrgriffin.com"
+              git config --global user.name "automation"
               yarn install
         - id: build
           run: |
