@@ -12,7 +12,7 @@
         "build-storybook": "build-storybook",
         "start": "start-storybook -p 8080",
         "prepare": "husky install || echo \"not running husky\"",
-        "build": "rollup -c",
+        "build": "rollup -c \"rollup.config.js\"",
         "build:local": "npm run clean && rollup -c",
         "clean": "rmdir /s /Q build || exit 0"
     },
