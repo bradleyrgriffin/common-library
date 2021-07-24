@@ -69,5 +69,4 @@ jobs:
         - id: 'Publish'
           run: |
               sed -i "s/VAR_AUTH_TOKEN/$GITHUB_TOKEN/g" .npmrc
-              yarn version:bump
-              yarn publish
+              yarn publish || echo "Update Version in package.json to release a new version to the registry!"
