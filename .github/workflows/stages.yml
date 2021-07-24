@@ -41,8 +41,8 @@ jobs:
                   yarn build
             - id: switch_to_production_build
               run: |
-                  cp -r dist/ /app/
-                  cp package.json /app/package.json
+                  sudo cp -r dist/ /app/
+                  sudo cp package.json /app/package.json
                   cd /app/
                   npm install --only=production
             - name: Yarn Package Publish
