@@ -41,7 +41,7 @@ jobs:
           yarn build
       - name: Yarn Package Publish
         env:
-+          GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN_GITHUB_PACKAGE_REGISTRY }}
+          GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN_GITHUB_PACKAGE_REGISTRY }}
         # You may pin to the exact commit or the version.
         # uses: luvies/action-yarn-publish@4a0c5397963820c6d44d37e99a020b3ccf964d9f
         uses: luvies/action-yarn-publish@v0.1.1
