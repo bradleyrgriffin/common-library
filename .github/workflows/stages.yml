@@ -39,7 +39,7 @@ jobs:
             - id: build
               run: |
                   yarn build
-            - id: switch to production build
+            - id: switch_to_production_build
               run: |
                   cp dist/ /app/
                   cp package.json /app/
