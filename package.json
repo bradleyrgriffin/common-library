@@ -1,41 +1,61 @@
 {
-    "name": "@bradleyrgriffin/common-library",
-    "version": "1.0.1",
-    "description": "this library houses common npm and react utilities for consumption across applications",
-    "main": "dist/index.js",
-    "types": "dist/hello.d.ts",
-    "scripts": {
-        "test": "yarn test",
-        "build": "((rmdir /s /Q dist && echo \"Removed previous distro. compiling new ts distro...\") || echo \"Nothing to remove, skipping to compilation...\") && tsc && echo \"...compiled!\"",
-        "lint:fix": "eslint --fix && prettier --write .",
-        "lint": "eslint && prettier --check ."
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+ssh://git@github.com/bradleyrgriffin/common-library.git"
-    },
-    "keywords": [
-        "libary",
-        "npm",
-        "react",
-        "typescript"
-    ],
-    "author": "bradleyrgriffin",
-    "license": "MIT",
-    "bugs": {
-        "url": "https://github.com/bradleyrgriffin/common-library/issues"
-    },
-    "homepage": "https://github.com/bradleyrgriffin/common-library#readme",
-    "dependencies": {
-        "typescript": "^4.3.5"
-    },
-    "devDependencies": {
-        "@typescript-eslint/eslint-plugin": "^4.28.4",
-        "@typescript-eslint/parser": "^4.28.4",
-        "eslint": "^7.31.0",
-        "eslint-config-google": "^0.14.0",
-        "eslint-plugin-react": "^7.24.0",
-        "prettier": "2.3.2",
-        "release-it": "^14.10.0"
-    }
+  "name": "@bradleyrgriffin/common-library",
+  "version": "1.0.1",
+  "description": "this library houses common npm and react utilities for consumption across applications",
+  "main": "dist/index.js",
+  "types": "dist/hello.d.ts",
+  "scripts": {
+    "test:coverage": "echo \"common-library: 100%\"",
+    "build": "((rmdir /s /Q dist && echo \"Removed previous distro. compiling new ts distro...\") || echo \"Nothing to remove, skipping to compilation...\") && tsc && echo \"...compiled!\"",
+    "lint:fix": "eslint --fix && prettier --write .",
+    "lint": "eslint && prettier --check .",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook",
+    "start": "start-storybook -p 8080"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/bradleyrgriffin/common-library.git"
+  },
+  "keywords": [
+    "libary",
+    "npm",
+    "react",
+    "typescript"
+  ],
+  "author": "bradleyrgriffin",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bradleyrgriffin/common-library/issues"
+  },
+  "homepage": "https://github.com/bradleyrgriffin/common-library#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "@storybook/addon-actions": "^6.3.4",
+    "@storybook/addon-essentials": "^6.3.4",
+    "@storybook/addon-links": "^6.3.4",
+    "@storybook/react": "^6.3.4",
+    "@types/react": "^17.0.14",
+    "@typescript-eslint/eslint-plugin": "^4.28.4",
+    "@typescript-eslint/parser": "^4.28.4",
+    "babel-loader": "^8.2.2",
+    "eslint": "^7.31.0",
+    "eslint-config-google": "^0.14.0",
+    "eslint-plugin-react": "^7.24.0",
+    "prettier": "2.3.2",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "typescript": "^4.3.5"
+  },
+  "peerDependencies": {
+    "react": "^16.8.0",
+    "react-dom": "^16.8.0"
+  },
+  "jest": {
+    "collectCoverage": true,
+    "coverageReporters": [
+      "json",
+      "html"
+    ]
+  }
 }
