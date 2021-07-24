@@ -1,5 +1,5 @@
 import { Atoms } from './Atoms'
 
-export default {
+module.exports = {
     ...Atoms,
 }

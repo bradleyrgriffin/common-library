@@ -14,7 +14,7 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
     # This workflow contains a single job called "build"
-    build:
+    test:
         # The type of runner that the job will run on
         runs-on: ubuntu-latest
 
@@ -35,22 +35,30 @@ jobs:
                   yarn install
             - id: test
               run: |
-                  echo "Coverage: 100%"
-            - id: build
-              run: |
-                  yarn build
-            - id: switch_to_production_build
-              run: |
-                  sudo cp -r dist/ /app/
-                  sudo cp package.json /app/package.json
-                  cd /app/
-                  sudo npm install --only=production
-            - name: Yarn Package Publish
-              env:
-                  GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN_GITHUB_PACKAGE_REGISTRY }}
-              # You may pin to the exact commit or the version.
-              # uses: luvies/action-yarn-publish@4a0c5397963820c6d44d37e99a020b3ccf964d9f
-              uses: luvies/action-yarn-publish@v0.1.1
-              with:
-                  # Whether to also tag the current commit with the version.
-                  git-tag: true
+                  yarn test:coverage
+    build_publish: 
+      runs-on: ubuntu-latest
+      steps:
+        - uses: actions/checkout@v2
+        - name: Setup Node.js environment
+          uses: actions/setup-node@v2.3.0
+
+        - id: install
+          run: |
+              sudo apt-get install \
+                nodejs \
+                zip
+              npm install -g yarn
+              yarn install
+        - id: build
+          run: |
+              yarn build
+        - id: bundle
+          run: |
+              sudo cp -r build/ /app/
+              sudo cp package.json /app/package.json
+              sudo cp .npmrc /app/.npmrc
+              cd /app/
+        - id: 'Publish'
+          run: |
+              yarn publish

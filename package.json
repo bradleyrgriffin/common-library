@@ -2,18 +2,18 @@
     "name": "@bradleyrgriffin/common-library",
     "version": "1.0.4",
     "description": "this library houses common npm and react utilities for consumption across applications",
-    "main": "dist/index.js",
-    "types": "dist/hello.d.ts",
+    "main": "build/index.js",
+    "module": "build/index.es.js",
+    "types": "build/index.d.ts",
     "scripts": {
         "test:coverage": "echo \"common-library: 100%\"",
-        "build": "((rmdir /s /Q dist && echo \"Removed previous distro. compiling new ts distro...\") || echo \"Nothing to remove, skipping to compilation...\") && tsc && echo \"...compiled!\"",
         "lint:fix": "eslint --fix && prettier --write .",
         "lint": "eslint && prettier --check .",
-        "storybook": "start-storybook -p 6006",
         "build-storybook": "build-storybook",
         "start": "start-storybook -p 8080",
         "prepare": "husky install || echo \"not running husky\"",
-        "build:rollup": "rollup -c"
+        "build": "npm run clean && rollup -c",
+        "clean": "rmdir /s /Q build || exit 0"
     },
     "repository": {
         "type": "git",
@@ -32,8 +32,10 @@
     },
     "homepage": "https://github.com/bradleyrgriffin/common-library#readme",
     "dependencies": {
+        "prop-types": "^15.7.2",
         "react": "^16.8.0",
-        "react-dom": "^16.8.0"
+        "react-dom": "^16.8.0",
+        "rollup-plugin-peer-deps-external": "^2.2.4"
     },
     "devDependencies": {
         "@babel/core": "^7.14.8",
@@ -61,8 +63,10 @@
         "postcss": "^8.3.6",
         "prettier": "2.3.2",
         "rollup": "^2.53.3",
+        "rollup-plugin-css-bundle": "^1.0.4",
         "rollup-plugin-postcss": "^4.0.0",
         "rollup-plugin-terser": "^7.0.2",
+        "rollup-plugin-typescript2": "^0.30.0",
         "typescript": "^4.3.5",
         "typescript-plugin-css-modules": "^3.4.0"
     },
