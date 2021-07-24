@@ -1,3 +1,4 @@
 # Ignore Artifacts:
 dist
 node_modules
+src/**/*.js*
