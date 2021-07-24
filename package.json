@@ -14,7 +14,8 @@
         "prepare": "husky install || echo \"not running husky\"",
         "build": "rollup -c \"rollup.config.js\"",
         "build:local": "npm run clean && rollup -c",
-        "clean": "rmdir /s /Q build || exit 0"
+        "clean": "rmdir /s /Q build || exit 0",
+        "version:bump": "yarn version --patch"
     },
     "repository": {
         "type": "git",
