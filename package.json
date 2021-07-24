@@ -12,7 +12,8 @@
         "build-storybook": "build-storybook",
         "start": "start-storybook -p 8080",
         "prepare": "husky install || echo \"not running husky\"",
-        "build": "npm run clean && rollup -c",
+        "build": "rollup -c",
+        "build:local": "npm run clean && rollup -c",
         "clean": "rmdir /s /Q build || exit 0"
     },
     "repository": {
