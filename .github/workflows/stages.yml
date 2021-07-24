@@ -41,7 +41,7 @@ jobs:
                   yarn build
             - id: switch_to_production_build
               run: |
-                  cp dist/ /app/
+                  cp -r dist/ /app/
                   cp package.json /app/
                   cd /app/
                   npm install --only=production
